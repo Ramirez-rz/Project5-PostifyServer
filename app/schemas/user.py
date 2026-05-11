@@ -1,5 +1,5 @@
 
-import datetime
+from datetime import datetime
 
 from sqlmodel import SQLModel
 

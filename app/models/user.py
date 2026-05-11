@@ -1,5 +1,5 @@
 
-import datetime
+from datetime import datetime
 import uuid
 
 from sqlmodel import Field, SQLModel
@@ -13,4 +13,4 @@ class User(SQLModel, table=True):
     lastname:str
     email:str=Field(unique=True,index=True)
     password:str
-    created_at:datetime
+    created_at:datetime=Field(default_factory=datetime.utcnow)

@@ -6,7 +6,7 @@ from sqlmodel import select
 
 from app.db.session import get_session
 from app.models.user import User
-from app.schemas import UserRead,UserCreate
+from app.schemas.user import UserRead,UserCreate
 
 
 router=APIRouter(prefix="/users",tags=["users"])
