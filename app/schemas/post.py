@@ -1,3 +1,5 @@
+
+#update, delete, get_id
 from datetime import datetime
 import uuid
 
@@ -16,5 +18,16 @@ class PostRead(SQLModel):
 class PostUpdate(SQLModel):
     id: uuid.UUID
     user_id: uuid.UUID
-    new_description:str
-    created_at:datetime 
+    description:str
+    updated_at:datetime 
+
+class PostDelete(SQLModel):
+    id: uuid.UUID
+    user_id: uuid.UUID 
+
+class get_id_Post(SQLModel):
+    id: uuid.UUID
+    user_id:uuid.UUID
+    description:str
+    created_at:datetime
+    updated_at:datetime 
