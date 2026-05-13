@@ -9,5 +9,6 @@ class Post(SQLModel, table=True):
     description:str
     user_id: uuid.UUID = Field(foreign_key="users.id")
     created_at:datetime=Field(default_factory=datetime.utcnow)
+    updated_at:datetime=Field(default_factory=datetime.utcnow)
 
     user: "User" = Relationship(back_populates="posts")
