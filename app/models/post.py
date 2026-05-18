@@ -1,6 +1,6 @@
 from datetime import datetime
 import uuid
-
+from typing import List
 from sqlmodel import Field, Relationship, SQLModel
 
 class Post(SQLModel, table=True):
@@ -12,3 +12,6 @@ class Post(SQLModel, table=True):
     updated_at:datetime=Field(default_factory=datetime.utcnow)
 
     user: "User" = Relationship(back_populates="posts")
+    images: List['Image'] = Relationship(back_populates="posts")
+    likes: List['Like'] = Relationship(back_populates="posts")
+    comments: List['Comment'] = Relationship(back_populates="comments")
