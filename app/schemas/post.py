@@ -1,10 +1,14 @@
 
 #update, delete, get_id
 from datetime import datetime
-from typing import List
+from typing import TYPE_CHECKING, List
 import uuid
 
 from sqlmodel import Field, Relationship, SQLModel
+
+if TYPE_CHECKING:
+    from app.schemas.like import LikeRead
+    from app.schemas.comment import CommentRead
 
 class PostCreate(SQLModel):
     description: str
@@ -28,10 +32,8 @@ class PostReadDetails(SQLModel):
 
 
 class PostUpdate(SQLModel):
-    id: uuid.UUID
     user_id: uuid.UUID
     description:str
-    updated_at:datetime 
 
 class PostDelete(SQLModel):
     id: uuid.UUID
@@ -43,3 +45,9 @@ class get_id_Post(SQLModel):
     description:str
     created_at:datetime
     updated_at:datetime 
+
+
+from app.schemas.like import LikeRead
+from app.schemas.comment import CommentRead
+
+PostReadDetails.model_rebuild()

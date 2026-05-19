@@ -6,7 +6,6 @@ from sqlmodel import Field, Relationship, SQLModel
 class CommentCreate(SQLModel):
     content: str
     user_id: uuid.UUID
-    post_id: uuid.UUID
 
 class CommentRead(SQLModel):
     id:uuid.UUID
